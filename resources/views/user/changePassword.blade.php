@@ -24,16 +24,19 @@
                                     </ul>
                                 </div>
                             @endif
+                            @if(Auth::user()->provider)
+                                <div class="alert alert-primary" style="text-align: center">
+                                    Mật Khẩu mặc định là: 123
+                                </div>
+                            @endif
                             <div class="form-group row">
                                 <label for="password"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Mật Khẩu Cũ') }}</label>
-
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                            class="form-control @error('current-password') is-invalid @enderror"
                                            name="current-password"
                                            required>
-
                                     @error('current-password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -27,3 +27,5 @@ Route::prefix('user')->group(function () {
     Route::post('/changepassword', 'UserController@changePassword')->name('user.changePassword');
 });
 
+Route::get('login/{provider}', 'SocialController@redirect');
+Route::get('login/{provider}/callback', 'SocialController@Callback');

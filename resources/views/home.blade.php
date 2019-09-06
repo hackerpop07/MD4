@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        <div class="form-group row " style="font-size: 25px">
+                        <div class="form-group row " style="font-size: 22px">
                             <label for="password-confirm"
                                    class="col-md-4 col-form-label text-md-right">{{ __('Họ Và Tên') }} :</label>
                             <div class="col-md-6">

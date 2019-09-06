@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fb.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -56,10 +57,17 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="{{asset('storage/image/'.Auth::user()->image)}}" class="rounded-circle"
-                                     alt="Cinque Terre"
-                                     width="40"
-                                     height="40">
+                                @if(Auth::user()->provider)
+                                    <img src="{{Auth::user()->image}}" class="rounded-circle"
+                                         alt="Cinque Terre"
+                                         width="40"
+                                         height="40">
+                                @else
+                                    <img src="{{'storage/image/'.Auth::user()->image}}" class="rounded-circle"
+                                         alt="Cinque Terre"
+                                         width="40"
+                                         height="40">
+                                @endif
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
