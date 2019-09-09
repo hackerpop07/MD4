@@ -15,4 +15,7 @@ interface ServiceInterface
     public function update($request, $id);
 
     public function delete($id);
+
+    public function search($column, $keyword);
+
 }

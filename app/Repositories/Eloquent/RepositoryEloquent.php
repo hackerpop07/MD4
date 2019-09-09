@@ -45,6 +45,11 @@ abstract class RepositoryEloquent implements RepositoryInterface
 
     public function getById($id)
     {
-        return $this->model->findOrFail($id);
+        return $this->model::findOrFail($id);
+    }
+
+    public function search($column, $keyword)
+    {
+        return $this->model::where($column, "LIKE", "%" . $keyword . "%")->orderBy('updated_at', 'desc')->paginate(6);
     }
 }

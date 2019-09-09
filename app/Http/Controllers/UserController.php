@@ -40,7 +40,7 @@ class UserController extends Controller
 
     public function edit()
     {
-        return view('user.update');
+        return view('userLogin.update');
     }
 
     public function update(UserUpdate $request, $id)
@@ -51,7 +51,7 @@ class UserController extends Controller
 
     public function viewChangePassword()
     {
-        return view('user.changePassword');
+        return view('userLogin.changePassword');
     }
 
     public function changePassword(ChangePassword $request)

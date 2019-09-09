@@ -11,9 +11,6 @@ class Service implements ServiceInterface
 {
     protected $repository;
 
-    /**
-     * @param mixed $repository
-     */
     public function setRepository($repository)
     {
         $this->repository = $repository;
@@ -21,17 +18,23 @@ class Service implements ServiceInterface
 
     public function getAll()
     {
-        $this->repository->getAll();
+        return $this->repository->getAll();
     }
 
     public function getById($id)
     {
-        $this->repository->getById($id);
+        return $this->repository->getById($id);
     }
 
     public function create($request)
     {
-        $this->repository->create($request);
+        if ($request->hasFile('image')) {
+            $file = $request->image;
+            $file->store('/image', 'public');
+            $array = $request->all();
+            $array['image'] = $file->hashName();
+            $this->repository->create($array);
+        }
     }
 
     public function update($request, $id)
@@ -49,12 +52,19 @@ class Service implements ServiceInterface
                 $array['image'] = $file->hashName();
                 $this->repository->update($array, $result);
             }
+            $this->repository->update($request->all(), $result);
         }
     }
 
     public function delete($id)
     {
-        return $this->repository->delete($id);
+        $result = $this->repository->getById($id);
+        return $this->repository->delete($result);
+    }
+
+    public function search($column, $keyword)
+    {
+        return $this->repository->search($column, $keyword);
     }
 
     public function deleteFile($url)

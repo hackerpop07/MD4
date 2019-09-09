@@ -27,8 +27,9 @@ class UserUpdate extends FormRequest
             'name' => 'required|string|min:6|max:30',
             'phone' => 'required|regex:/(0)[0-9]{9}/|unique:users,phone',
             'age' => 'required|numeric',
-            'image' => 'required|mimes:jpeg,png,bmp,gif,svg,jpg',
+            'image' => 'mimes:jpeg,png,bmp,gif,svg,jpg',
             'address' => 'required|string|min:6|max:255',
+            //'date_of_birth' => 'required|before:today',
         ];
     }
 

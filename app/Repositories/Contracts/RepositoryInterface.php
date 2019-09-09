@@ -15,4 +15,6 @@ interface RepositoryInterface
     public function update($data, $object);
 
     public function getById($id);
+
+    public function search($keyword, $column);
 }
