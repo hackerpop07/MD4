@@ -49,7 +49,7 @@
 <header class="s-header header">
 
     <div class="header__logo">
-        <a class="logo" href="index.html">
+        <a class="logo" href="/">
             <img src="storage/wordsmith/images/logo.svg" alt="Homepage">
         </a>
     </div> <!-- end header__logo -->

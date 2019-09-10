@@ -28,6 +28,7 @@ class Service implements ServiceInterface
 
     public function create($request)
     {
+        dd($request->hasFile('image'));
         if ($request->hasFile('image')) {
             $file = $request->image;
             $file->store('/image', 'public');
@@ -50,9 +51,9 @@ class Service implements ServiceInterface
                 $file->store('/image', 'public');
                 $array = $request->all();
                 $array['image'] = $file->hashName();
-                $this->repository->update($array, $result);
+                return $this->repository->update($array, $result);
             }
-            $this->repository->update($request->all(), $result);
+            return $this->repository->update($request->all(), $result);
         }
     }
 

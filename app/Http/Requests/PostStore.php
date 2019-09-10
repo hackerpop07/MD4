@@ -24,9 +24,9 @@ class PostStore extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|min:6|max:30',
+            'title' => 'required|string|min:6',
             'image' => 'required|mimes:jpeg,png,bmp,gif,svg,jpg',
-            'description' => 'required|string|min:6|max:50',
+            'description' => 'required|string|min:6',
             'content' => "required|string|min:6",
             'status' => "required|numeric",
         ];

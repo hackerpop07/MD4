@@ -30,17 +30,27 @@
                             <div class="col-md-6">
                                 @if(Auth::user()->phone)
                                     <p class=" col-form-label">{{"0".Auth::user()->phone}}</p>
+                                @else
+                                    <p class=" col-form-label">Chưa Có Thông Tin</p>
                                 @endif
                             </div>
                             <label for="password-confirm"
                                    class="col-md-4 col-form-label text-md-right">{{ __('Tuổi') }} :</label>
                             <div class="col-md-6">
-                                <p class=" col-form-label">{{Auth::user()->age}}</p>
+                                @if(Auth::user()->age)
+                                    <p class=" col-form-label">{{Auth::user()->age}}</p>
+                                @else
+                                    <p class=" col-form-label">Chưa Có Thông Tin</p>
+                                @endif
                             </div>
                             <label for="password-confirm"
                                    class="col-md-4 col-form-label text-md-right">{{ __('Địa Chỉ') }} :</label>
                             <div class="col-md-6">
-                                <p class=" col-form-label">{{Auth::user()->address}}</p>
+                                @if(Auth::user()->address)
+                                    <p class=" col-form-label">{{Auth::user()->address}}</p>
+                                @else
+                                    <p class=" col-form-label">Chưa Có Thông Tin</p>
+                                @endif
                             </div>
                         </div>
                     </div>
